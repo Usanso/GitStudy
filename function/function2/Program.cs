@@ -20,16 +20,23 @@ namespace function2
         static void Main(string[] args)
         {
             Console.WriteLine("첫번째 값 : ");
-            int first = int.Parse(Console.ReadLine());
+            int a = int.Parse(Console.ReadLine());
             Console.WriteLine("두번째 값 : ");
-            int second = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            (int, int) tuple = (a, b);
 
-            DivideNumbers();
+            var c = DivideNumbers(tuple);
+            Console.WriteLine($"몫: {c.Item1}, 나머지: {c.Item2}");
 
         }
-        public (int share, int residuum) DivideNumbers()
+        static (int, int) DivideNumbers((int,int) numbers)
         {
+           
 
+            int share = numbers.Item1 / numbers.Item2;
+            int residuum = numbers.Item1 % numbers.Item2;
+
+            return (share, residuum);
         }
 
     }
