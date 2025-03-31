@@ -20,7 +20,26 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"{n}의 팩토리얼 값 : {FactorialIterative(n)}");
+        }
+
+        static int FactorialIterative(int a)
+        {
+            int sum = 0;
+            // a 만큼 반복
+            for (int i = a; i > 0; i--)
+            {
+                FactorialRecursive(i, ref sum);
+                
+            }
+
+            return sum;    
+        }
+        static void FactorialRecursive(int i, ref int sum)
+        {
+            sum = sum + i;
         }
     }
 }
