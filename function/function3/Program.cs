@@ -27,7 +27,7 @@
 
         static int FactorialIterative(int a)
         {
-            int sum = 0;
+            int sum = 1;
             // a 만큼 반복
             for (int i = a; i > 0; i--)
             {
@@ -39,7 +39,7 @@
         }
         static void FactorialRecursive(int i, ref int sum)
         {
-            sum = sum + i;
+            sum = sum * i;
         }
     }
 }

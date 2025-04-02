@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 
 namespace function4
 {
@@ -17,13 +18,40 @@ namespace function4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Player player = new Player("Test",10);
+
+            Console.WriteLine($"초기 체력 : {player.HP}");
+            
+            player.TakeDamage(2);
+            Console.WriteLine(player.HP);
+            player.TakeDamage(2);
+            Console.WriteLine(player.HP);
+            player.TakeDamage(2);
+            Console.WriteLine(player.HP);
+            player.TakeDamage(2);
+            Console.WriteLine(player.HP);
+            player.TakeDamage(2);
+            Console.WriteLine(player.HP);
+            player.TakeDamage(2);
+            Console.WriteLine(player.HP);
+
         }
+
     }
 
     public class Player
     {
-        public string Name { get; set; }
+        public string Name;
+        public int HP;
+        public Player (string name, int hp) //생성자
+        {
+            Name = name; HP = hp;
+        }
+        public void TakeDamage(int damage)
+        {
+            HP -= damage;
+            if (HP < 0) HP = 0;
+        }
     }
 }
 
